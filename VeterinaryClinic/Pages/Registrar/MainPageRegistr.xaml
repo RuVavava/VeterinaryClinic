@@ -9,7 +9,7 @@
       Title="" FontFamily="Comic Sans MS">
 
     <Grid>
-        <Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions> 
             <ColumnDefinition Width="500"/>
             <ColumnDefinition/>
             <ColumnDefinition/>
