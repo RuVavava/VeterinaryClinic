@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="73034c231bcf4563870b636cf81fd832" Name="Diagram1">
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.Agreement" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.Appointment" Width="1.5" PointX="8.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.AppointmentStatus" Width="1.5" PointX="6" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.Clients" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.ConsentToPerformService" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.Employees" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.FinancialTransactions" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.Gender" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.LaboratoryTests" Width="1.5" PointX="10.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.MedicalRecord" Width="1.5" PointX="7.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.PaymentType" Width="1.5" PointX="6" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.Pets" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.PetType" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.Position" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.Product" Width="1.5" PointX="6" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.Service" Width="1.5" PointX="6" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.ServiceType" Width="1.5" PointX="3.75" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.Supplier" Width="1.5" PointX="6" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.Warehouse" Width="1.5" PointX="8.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.Users" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Agreement_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Agreement_ConsentToPerformService" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Agreement_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Agreement_Pets" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Appointment_AppointmentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Appointment_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Appointment_Pets" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Appointment_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Clients_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Pets_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Employees_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Employees_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_FinancialTransactions_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_MedicalRecord_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_FinancialTransactions_PaymentType" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_FinancialTransactions_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_FinancialTransactions_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Pets_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_LaboratoryTests_Pets" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_LaboratoryTests_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_MedicalRecord_Pets" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Pets_PetType" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Warehouse_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Service_ServiceType" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Warehouse_Supplier" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

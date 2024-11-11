@@ -1,0 +1,172 @@
+﻿<Page x:Class="VeterinaryClinic.Pages.Registrar.MainPageRegistr"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:VeterinaryClinic.Pages.Registrar"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="" FontFamily="Comic Sans MS">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <ListView x:Name="AppointmensLV"  FontSize="25"
+                  VerticalAlignment="Center" HorizontalAlignment="Center"
+                  Width="1300" Height="900"
+                  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="3"
+                  ScrollViewer.HorizontalScrollBarVisibility="Hidden" d:ItemsSource="{Binding appointments}" >
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header ="Услуга" Width="250">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal" Height="30">
+                                            <TextBlock TextWrapping="Wrap" Width="325"  Margin="10, 0" VerticalAlignment="Top"  FontSize="20"  Text="{Binding Service.Name_Service}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header ="Клиент" Width="500">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal" Height="30">
+                                            <TextBlock FontSize="20" Text="{Binding Clients.FirstName_Client}"/>
+                                            <TextBlock Text=" "/>
+                                            <TextBlock FontSize="20" Text="{Binding Clients.LastName_Client}" />
+                                            <TextBlock Text=" "/>
+                                            <TextBlock FontSize="20" Text="{Binding Clients.Patronymic_Client}"/>
+                                            <TextBlock Text=" "/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Height="30">
+                                            <TextBlock FontSize="20"  Text="{Binding Clients.Email}"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Height="30">
+                                            <TextBlock FontSize="20"  Text="{Binding Clients.Phone}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header ="Время записи" Width="270">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+
+                                    <StackPanel Height="90">
+                                        <StackPanel Height="30">
+                                            <TextBlock FontSize="20" Height="70" Text="{Binding DateAppointment, StringFormat = dd.MM.yyyy HH:mm}"/>
+                                        </StackPanel>
+                                        <StackPanel Height="45">
+                                            <TextBlock FontSize="15" Text="{Binding OstatokHours}" Foreground="{Binding LeftOurs}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header ="Животное" Width="270">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+
+                                    <StackPanel Height="90">
+                                        <TextBlock FontSize="20" Text="{Binding Pets.Name_Pet}"/>
+                                    </StackPanel>
+
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button x:Name="BackBTN" Content="⬅"
+                FontSize="30" FontWeight="Light"
+                Grid.Column="0" Grid.Row="0"
+                Width="100" Height="50" Margin="20, 30, 0, 0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                BorderBrush="Black" BorderThickness="2" Background="#CC05A0FF" Click="BackBTN_Click"
+                >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Content="Добавить нового клиента" Grid.Row="0" Grid.Column="0" Name="AddClientBTN" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320"          
+                BorderBrush="Black" BorderThickness="1" Background="#CC05A0FF" Height="50" FontSize="20" Click="AddClientBTN_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Content="Добавить новое животное" Grid.Row="0" Grid.Column="0" Name="AddPetBTN" Margin="0 180 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320"          
+                BorderBrush="Black" BorderThickness="1" Background="#CC05A0FF" Height="50" FontSize="20" Click="AddPetBTN_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        
+        <Button Content="Новая запись" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Name="AddAppBTN" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320"          
+                BorderBrush="Black" BorderThickness="1" Background="#CC05A0FF" Height="50" FontSize="20" Click="AddAppBTN_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Content="Записи" Grid.Row="3" Grid.Column="0" Name="AppointmentsBTN" HorizontalAlignment="Center" VerticalAlignment="Center" Width="220"          
+                BorderBrush="Black" BorderThickness="1" Background="#CC05A0FF" Height="50" FontSize="20" Click="AppointmentsBTN_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Content="Клиенты" Grid.Row="2" Grid.Column="0" Name="ClientsBTN" HorizontalAlignment="Left" VerticalAlignment="Center" Width="220"          
+                BorderBrush="Black" BorderThickness="1" Background="#CC05A0FF" Height="50" FontSize="20" Margin="15 130 15 0" Click="ClientsBTN_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Content="Животные" Grid.Row="2" Grid.Column="0" Name="PetsBTN" HorizontalAlignment="Right" VerticalAlignment="Center" Width="220"          
+                BorderBrush="Black" BorderThickness="1" Background="#CC05A0FF" Height="50" FontSize="20" Margin="15 130 15 0" Click="PetsBTN_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+    </Grid>
+</Page>
