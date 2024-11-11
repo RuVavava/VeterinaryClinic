@@ -83,15 +83,15 @@
                   VerticalAlignment="Center" HorizontalAlignment="Left"
                   Width="200" Height="25" Margin="10, 60, 0, 0"/>
 
-        <TextBox  x:Name="TimeClientServiceTB" TextChanged="TimeTbx_TextChanged"           
+        <TextBox  x:Name="TimeClientServiceTB"        
                   Grid.Row="5" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                   VerticalAlignment="Center" HorizontalAlignment="Left"
                   Width="70" Height="25" Margin="40, 60, 0, 0"
-                  PreviewTextInput="TimeTbx_PreviewTextInput">
+                  >
             <TextBox.Template>
                 <ControlTemplate>
                     <Border CornerRadius="5" BorderBrush="Black" BorderThickness="1" Background="White">
-                        <ScrollViewer Margin="2" BorderBrush="White" x:Name="PART_ContentHost" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" PreviewTextInput="NumericOnly"/>
+                        <ScrollViewer Margin="2" BorderBrush="White" x:Name="PART_ContentHost" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
             </TextBox.Template>

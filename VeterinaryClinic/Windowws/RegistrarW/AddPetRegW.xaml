@@ -35,12 +35,12 @@
         </TextBox>
 
         <TextBlock Text="Вид животного:" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Width="300" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 00"/>
-        <ComboBox x:Name="TypePetCB" ItemsSource="{Binding petType}"
+        <ComboBox x:Name="TypePetCB" ItemsSource="{Binding petsType}"
                      Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="21"  Width="150" Height="25" Margin="10, 0, 0, 0">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding FirstName}"/>
+                        <TextBlock Text="{Binding Name_PetType}"/>
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
@@ -117,7 +117,7 @@
         </ComboBox>
 
         <Button Content="Подтвердить" Grid.Row="6" Grid.Column="1" Name="OKBTN" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,11" Width="120"          
-                BorderBrush="Black" BorderThickness="1" Background="#CC05A0FF" Height="26" >
+                BorderBrush="Black" BorderThickness="1" Background="#CC05A0FF" Height="26" Click="OKBTN_Click" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -126,7 +126,7 @@
         </Button>
 
         <Button Content="Отмена" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Name="CancelBTN" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20,0,0,11" Width="80"          
-                BorderBrush="Black" BorderThickness="1" Background="#CC05A0FF" Height="26">
+                BorderBrush="Black" BorderThickness="1" Background="#CC05A0FF" Height="26" Click="CancelBTN_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>

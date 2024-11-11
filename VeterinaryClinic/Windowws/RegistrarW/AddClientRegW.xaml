@@ -84,7 +84,7 @@
             <TextBox.Template>
                 <ControlTemplate>
                     <Border CornerRadius="5" BorderBrush="Black" BorderThickness="1" Background="White">
-                        <ScrollViewer Margin="2" BorderBrush="White" x:Name="PART_ContentHost" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" PreviewTextInput="NumericOnly"/>
+                        <ScrollViewer Margin="2" BorderBrush="White" x:Name="PART_ContentHost" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
             </TextBox.Template>
@@ -95,14 +95,14 @@
             <TextBox.Template>
                 <ControlTemplate>
                     <Border CornerRadius="5" BorderBrush="Black" BorderThickness="1" Background="White">
-                        <ScrollViewer Margin="2" BorderBrush="White" x:Name="PART_ContentHost" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" PreviewTextInput="NumericOnly"/>
+                        <ScrollViewer Margin="2" BorderBrush="White" x:Name="PART_ContentHost" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
             </TextBox.Template>
         </TextBox>
 
         <Button Content="Подтвердить" Grid.Row="6" Grid.Column="1" Name="OKBTN" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,11" Width="120"          
-                BorderBrush="Black" BorderThickness="1" Background="#CC05A0FF" Height="26" >
+                BorderBrush="Black" BorderThickness="1" Background="#CC05A0FF" Height="26" Click="OKBTN_Click" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -111,7 +111,7 @@
         </Button>
 
         <Button Content="Отмена" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Name="CancelBTN" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20,0,0,11" Width="80"          
-                BorderBrush="Black" BorderThickness="1" Background="#CC05A0FF" Height="26">
+                BorderBrush="Black" BorderThickness="1" Background="#CC05A0FF" Height="26" Click="CancelBTN_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
