@@ -22,11 +22,15 @@ namespace VeterinaryClinic.Windowws.RegistrarW
     {
         public static List<Pets> pets {  get; set; }
         public static List<Clients> clients { get; set; }
+        public static List<PetType> petTypes { get; set; }
+        public static List<Gender> genders { get; set; }
         public PetsRegW()
         {
             InitializeComponent();
             pets = new List<Pets>(DBConnection.veterinary.Pets.ToList());
             clients = new List<Clients>(DBConnection.veterinary.Clients.ToList());
+            petTypes = new List<PetType>(DBConnection.veterinary.PetType.ToList());
+            genders = new List<Gender>(DBConnection.veterinary.Gender.ToList());
 
             PetsLV.ItemsSource = pets;
         }

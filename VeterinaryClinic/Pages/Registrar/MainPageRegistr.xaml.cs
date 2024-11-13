@@ -45,6 +45,8 @@ namespace VeterinaryClinic.Pages.Registrar
                 pets = new List<Pets>(DBConnection.veterinary.Pets.ToList());
                 services = new List<Service>(DBConnection.veterinary.Service.ToList());
 
+                //appointments = new List<Appointment>(DBConnection.veterinary.Appointment.ToList());
+
                 appointments = new List<Appointment>(DBConnection.veterinary.Appointment.
                     Where(x => (DateTime)x.DateAppointment >= today && (DateTime)x.DateAppointment <= tomorrow).OrderBy(x => (DateTime)x.DateAppointment).ToList());
 

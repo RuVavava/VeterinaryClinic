@@ -29,12 +29,12 @@
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header ="Услуга" Width="250">
+                        <GridViewColumn Header ="Услуга" Width="400">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     
                                     <StackPanel>
-                                        <StackPanel Orientation="Horizontal" Height="30">
+                                        <StackPanel Orientation="Horizontal" Height="90">
                                             <TextBlock TextWrapping="Wrap" Width="325"  Margin="10, 0" VerticalAlignment="Top"  FontSize="20"  Text="{Binding Service.Name_Service}"/>
                                         </StackPanel>
                                     </StackPanel>
@@ -42,7 +42,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header ="Клиент" Width="500">
+                        <GridViewColumn Header ="Клиент" Width="350">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
 
@@ -57,11 +57,11 @@
                                         </StackPanel>
 
                                         <StackPanel Orientation="Horizontal" Height="30">
-                                            <TextBlock FontSize="20"  Text="{Binding Clients.Email}"/>
+                                            <TextBlock FontSize="20"  Text="{Binding Clients.Email_Client}"/>
                                         </StackPanel>
 
                                         <StackPanel Orientation="Horizontal" Height="30">
-                                            <TextBlock FontSize="20"  Text="{Binding Clients.Phone}"/>
+                                            <TextBlock FontSize="20"  Text="{Binding Clients.Phone_Client}"/>
                                         </StackPanel>
                                     </StackPanel>
 
@@ -77,7 +77,7 @@
                                             <TextBlock FontSize="20" Height="70" Text="{Binding DateAppointment, StringFormat = dd.MM.yyyy HH:mm}"/>
                                         </StackPanel>
                                         <StackPanel Height="45">
-                                            <TextBlock FontSize="15" Text="{Binding OstatokHours}" Foreground="{Binding LeftOurs}"/>
+                                            <TextBlock FontSize="20" Text="{Binding OstatokHours}" Foreground="{Binding LeftOurs}"/>
                                         </StackPanel>
                                     </StackPanel>
 

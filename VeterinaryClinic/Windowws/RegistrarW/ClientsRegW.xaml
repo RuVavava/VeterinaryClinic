@@ -5,28 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VeterinaryClinic.Windowws.RegistrarW"
         mc:Ignorable="d"
-        Title="Список всех клиентов" Height="450" Width="800"
+        Title="Список всех клиентов" Height="450" Width="1000"
         FontFamily="Comic Sans MS" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid>
 
         <ListView x:Name="ClientsLV"  FontSize="15"
                   VerticalAlignment="Center" HorizontalAlignment="Center"
-                  Width="750" Height="380"
+                  Width="950" Height="380"
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden" d:ItemsSource="{Binding clients}">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header ="ФИО" Width="150">
+                        <GridViewColumn Header ="ФИО" Width="250">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel>
                                         <StackPanel>
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock FontSize="10" Text="{Binding FirstName_Client}"/>
+                                                <TextBlock FontSize="10" Text="{Binding FirstName_Client}" TextWrapping="Wrap"/>
                                                 <TextBlock Text=" "/>
-                                                <TextBlock FontSize="10" Text="{Binding LastName_Client}" />
+                                                <TextBlock FontSize="10" Text="{Binding LastName_Client}"  TextWrapping="Wrap" />
                                                 <TextBlock Text=" "/>
-                                                <TextBlock FontSize="10" Text="{Binding Patronymic_Client}"/>
+                                                <TextBlock FontSize="10" Text="{Binding Patronymic_Client}"  TextWrapping="Wrap"/>
                                                 <TextBlock Text=" "/>
                                             </StackPanel>
                                         </StackPanel>
@@ -34,13 +34,13 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header ="Дата рождения" Width="200">
+                        <GridViewColumn Header ="Дата рождения" Width="150">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
 
                                     <StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock FontSize="10" Text="{Binding DB_Client}"/>
+                                            <TextBlock FontSize="10" Text="{Binding DB_Client, StringFormat = dd.MM.yyyy}"/>
                                         </StackPanel>
                                     </StackPanel>
 
@@ -53,7 +53,7 @@
 
                                     <StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock FontSize="10" Text="{Binding Phone_Client}"/>
+                                            <TextBlock FontSize="10" Text="{Binding Phone_Client}"  TextWrapping="Wrap"/>
                                             <TextBlock FontSize="10" Text=" "/>
                                             <TextBlock FontSize="10" Text="{Binding Email_Client}" />
                                             <TextBlock Text=" "/>
@@ -64,7 +64,7 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header ="Адрес" Width="113">
+                        <GridViewColumn Header ="Адрес" Width="260">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
 

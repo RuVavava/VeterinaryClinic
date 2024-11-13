@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VeterinaryClinic.Windowws.RegistrarW"
         mc:Ignorable="d"
-        Title="Добавление новой записи" Height="450" Width="400" FontFamily="Comic Sans MS" ResizeMode="NoResize">
+        Title="Добавление новой записи" Height="500" Width="400" FontFamily="Comic Sans MS" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -26,7 +26,7 @@
         <ComboBox x:Name="ClientsCB" ItemsSource="{Binding clients}"
                   Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
                   VerticalAlignment="Top" HorizontalAlignment="Left"
-                  Width="300" Height="55" Margin="10">
+                  Width="300" Height="55" Margin="10" SelectionChanged="ClientsCB_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище VeterinaryСlinicModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище VeterinaryСlinicModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Agreement">
           <Key>
             <PropertyRef Name="ID_Agreement" />
@@ -24,7 +24,7 @@
             <PropertyRef Name="ID_Appointment" />
           </Key>
           <Property Name="ID_Appointment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DateAppointment" Type="date" Nullable="false" />
+          <Property Name="DateAppointment" Type="datetime" Nullable="false" />
           <Property Name="ID_Client" Type="int" Nullable="false" />
           <Property Name="ID_Pet" Type="int" Nullable="false" />
           <Property Name="ID_Service" Type="int" />
@@ -693,8 +693,7 @@
             <End Role="Warehouse" EntitySet="Warehouse" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="VeterinaryСlinicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -716,29 +715,13 @@
           <NavigationProperty Name="Employees" Relationship="Self.FK_Agreement_Employees" FromRole="Agreement" ToRole="Employees" />
           <NavigationProperty Name="Pets" Relationship="Self.FK_Agreement_Pets" FromRole="Agreement" ToRole="Pets" />
         </EntityType>
-        <EntityType Name="Appointment">
-          <Key>
-            <PropertyRef Name="ID_Appointment" />
-          </Key>
-          <Property Name="ID_Appointment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DateAppointment" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="ID_Client" Type="Int32" Nullable="false" />
-          <Property Name="ID_Pet" Type="Int32" Nullable="false" />
-          <Property Name="ID_Service" Type="Int32" />
-          <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ID_AppointmentStatus" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AppointmentStatus" Relationship="Self.FK_Appointment_AppointmentStatus" FromRole="Appointment" ToRole="AppointmentStatus" />
-          <NavigationProperty Name="Clients" Relationship="Self.FK_Appointment_Clients" FromRole="Appointment" ToRole="Clients" />
-          <NavigationProperty Name="Pets" Relationship="Self.FK_Appointment_Pets" FromRole="Appointment" ToRole="Pets" />
-          <NavigationProperty Name="Service" Relationship="Self.FK_Appointment_Service" FromRole="Appointment" ToRole="Service" />
-        </EntityType>
         <EntityType Name="AppointmentStatus">
           <Key>
             <PropertyRef Name="ID_AppointmentStatus" />
           </Key>
           <Property Name="ID_AppointmentStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name_AS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Appointment" Relationship="Self.FK_Appointment_AppointmentStatus" FromRole="AppointmentStatus" ToRole="Appointment" />
+          <NavigationProperty Name="Appointment" Relationship="VeterinaryСlinicModel.FK_Appointment_AppointmentStatus" FromRole="AppointmentStatus" ToRole="Appointment" />
         </EntityType>
         <EntityType Name="Clients">
           <Key>
@@ -755,9 +738,9 @@
           <Property Name="ResidentialAddress_Client" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Agreement" Relationship="Self.FK_Agreement_Clients" FromRole="Clients" ToRole="Agreement" />
-          <NavigationProperty Name="Appointment" Relationship="Self.FK_Appointment_Clients" FromRole="Clients" ToRole="Appointment" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_Clients_Gender" FromRole="Clients" ToRole="Gender" />
           <NavigationProperty Name="Pets" Relationship="Self.FK_Pets_Clients" FromRole="Clients" ToRole="Pets" />
+          <NavigationProperty Name="Appointment" Relationship="VeterinaryСlinicModel.FK_Appointment_Clients" FromRole="Clients" ToRole="Appointment" />
         </EntityType>
         <EntityType Name="ConsentToPerformService">
           <Key>
@@ -864,12 +847,12 @@
           <Property Name="Weight" Type="Int32" />
           <Property Name="ID_Client" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Agreement" Relationship="Self.FK_Agreement_Pets" FromRole="Pets" ToRole="Agreement" />
-          <NavigationProperty Name="Appointment" Relationship="Self.FK_Appointment_Pets" FromRole="Pets" ToRole="Appointment" />
           <NavigationProperty Name="Clients" Relationship="Self.FK_Pets_Clients" FromRole="Pets" ToRole="Clients" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_Pets_Gender" FromRole="Pets" ToRole="Gender" />
           <NavigationProperty Name="LaboratoryTests" Relationship="Self.FK_LaboratoryTests_Pets" FromRole="Pets" ToRole="LaboratoryTests" />
           <NavigationProperty Name="MedicalRecord" Relationship="Self.FK_MedicalRecord_Pets" FromRole="Pets" ToRole="MedicalRecord" />
           <NavigationProperty Name="PetType" Relationship="Self.FK_Pets_PetType" FromRole="Pets" ToRole="PetType" />
+          <NavigationProperty Name="Appointment" Relationship="VeterinaryСlinicModel.FK_Appointment_Pets" FromRole="Pets" ToRole="Appointment" />
         </EntityType>
         <EntityType Name="PetType">
           <Key>
@@ -905,10 +888,10 @@
           <Property Name="Name_Service" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ID_ServiceType" Type="Int32" Nullable="false" />
           <Property Name="Cost" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Appointment" Relationship="Self.FK_Appointment_Service" FromRole="Service" ToRole="Appointment" />
           <NavigationProperty Name="FinancialTransactions" Relationship="Self.FK_FinancialTransactions_Service" FromRole="Service" ToRole="FinancialTransactions" />
           <NavigationProperty Name="LaboratoryTests" Relationship="Self.FK_LaboratoryTests_Service" FromRole="Service" ToRole="LaboratoryTests" />
           <NavigationProperty Name="ServiceType" Relationship="Self.FK_Service_ServiceType" FromRole="Service" ToRole="ServiceType" />
+          <NavigationProperty Name="Appointment" Relationship="VeterinaryСlinicModel.FK_Appointment_Service" FromRole="Service" ToRole="Appointment" />
         </EntityType>
         <EntityType Name="ServiceType">
           <Key>
@@ -1014,54 +997,6 @@
             </Principal>
             <Dependent Role="Agreement">
               <PropertyRef Name="ID_Pet" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Appointment_AppointmentStatus">
-          <End Role="AppointmentStatus" Type="Self.AppointmentStatus" Multiplicity="1" />
-          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AppointmentStatus">
-              <PropertyRef Name="ID_AppointmentStatus" />
-            </Principal>
-            <Dependent Role="Appointment">
-              <PropertyRef Name="ID_AppointmentStatus" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Appointment_Clients">
-          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
-          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Clients">
-              <PropertyRef Name="ID_Client" />
-            </Principal>
-            <Dependent Role="Appointment">
-              <PropertyRef Name="ID_Client" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Appointment_Pets">
-          <End Role="Pets" Type="Self.Pets" Multiplicity="1" />
-          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Pets">
-              <PropertyRef Name="ID_Pet" />
-            </Principal>
-            <Dependent Role="Appointment">
-              <PropertyRef Name="ID_Pet" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Appointment_Service">
-          <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
-          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Service">
-              <PropertyRef Name="ID_Service" />
-            </Principal>
-            <Dependent Role="Appointment">
-              <PropertyRef Name="ID_Service" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1271,7 +1206,6 @@
         </Association>
         <EntityContainer Name="VeterinaryСlinicEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Agreement" EntityType="Self.Agreement" />
-          <EntitySet Name="Appointment" EntityType="Self.Appointment" />
           <EntitySet Name="AppointmentStatus" EntityType="Self.AppointmentStatus" />
           <EntitySet Name="Clients" EntityType="Self.Clients" />
           <EntitySet Name="ConsentToPerformService" EntityType="Self.ConsentToPerformService" />
@@ -1306,22 +1240,6 @@
           <AssociationSet Name="FK_Agreement_Pets" Association="Self.FK_Agreement_Pets">
             <End Role="Pets" EntitySet="Pets" />
             <End Role="Agreement" EntitySet="Agreement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Appointment_AppointmentStatus" Association="Self.FK_Appointment_AppointmentStatus">
-            <End Role="AppointmentStatus" EntitySet="AppointmentStatus" />
-            <End Role="Appointment" EntitySet="Appointment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Appointment_Clients" Association="Self.FK_Appointment_Clients">
-            <End Role="Clients" EntitySet="Clients" />
-            <End Role="Appointment" EntitySet="Appointment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Appointment_Pets" Association="Self.FK_Appointment_Pets">
-            <End Role="Pets" EntitySet="Pets" />
-            <End Role="Appointment" EntitySet="Appointment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Appointment_Service" Association="Self.FK_Appointment_Service">
-            <End Role="Service" EntitySet="Service" />
-            <End Role="Appointment" EntitySet="Appointment" />
           </AssociationSet>
           <AssociationSet Name="FK_Clients_Gender" Association="Self.FK_Clients_Gender">
             <End Role="Gender" EntitySet="Gender" />
@@ -1421,6 +1339,23 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="Appointment" EntityType="VeterinaryСlinicModel.Appointment" />
+          <AssociationSet Name="FK_Appointment_AppointmentStatus" Association="VeterinaryСlinicModel.FK_Appointment_AppointmentStatus">
+            <End Role="AppointmentStatus" EntitySet="AppointmentStatus" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Clients" Association="VeterinaryСlinicModel.FK_Appointment_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Pets" Association="VeterinaryСlinicModel.FK_Appointment_Pets">
+            <End Role="Pets" EntitySet="Pets" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Service" Association="VeterinaryСlinicModel.FK_Appointment_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1433,6 +1368,70 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="ID_Appointment" />
+          </Key>
+          <Property Name="ID_Appointment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateAppointment" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ID_Client" Type="Int32" Nullable="false" />
+          <Property Name="ID_Pet" Type="Int32" Nullable="false" />
+          <Property Name="ID_Service" Type="Int32" />
+          <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_AppointmentStatus" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AppointmentStatus" Relationship="VeterinaryСlinicModel.FK_Appointment_AppointmentStatus" FromRole="Appointment" ToRole="AppointmentStatus" />
+          <NavigationProperty Name="Clients" Relationship="VeterinaryСlinicModel.FK_Appointment_Clients" FromRole="Appointment" ToRole="Clients" />
+          <NavigationProperty Name="Pets" Relationship="VeterinaryСlinicModel.FK_Appointment_Pets" FromRole="Appointment" ToRole="Pets" />
+          <NavigationProperty Name="Service" Relationship="VeterinaryСlinicModel.FK_Appointment_Service" FromRole="Appointment" ToRole="Service" />
+        </EntityType>
+        <Association Name="FK_Appointment_AppointmentStatus">
+          <End Type="VeterinaryСlinicModel.AppointmentStatus" Role="AppointmentStatus" Multiplicity="1" />
+          <End Type="VeterinaryСlinicModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppointmentStatus">
+              <PropertyRef Name="ID_AppointmentStatus" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="ID_AppointmentStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Clients">
+          <End Type="VeterinaryСlinicModel.Clients" Role="Clients" Multiplicity="1" />
+          <End Type="VeterinaryСlinicModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="ID_Client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Pets">
+          <End Type="VeterinaryСlinicModel.Pets" Role="Pets" Multiplicity="1" />
+          <End Type="VeterinaryСlinicModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pets">
+              <PropertyRef Name="ID_Pet" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="ID_Pet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Service">
+          <End Type="VeterinaryСlinicModel.Service" Role="Service" Multiplicity="0..1" />
+          <End Type="VeterinaryСlinicModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID_Service" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="ID_Service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1451,19 +1450,6 @@
                 <ScalarProperty Name="ID_CTPS" ColumnName="ID_CTPS" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Appointment">
-            <EntityTypeMapping TypeName="VeterinaryСlinicModel.Appointment">
-              <MappingFragment StoreEntitySet="Appointment">
-                <ScalarProperty Name="ID_Appointment" ColumnName="ID_Appointment" />
-                <ScalarProperty Name="DateAppointment" ColumnName="DateAppointment" />
-                <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
-                <ScalarProperty Name="ID_Pet" ColumnName="ID_Pet" />
-                <ScalarProperty Name="ID_Service" ColumnName="ID_Service" />
-                <ScalarProperty Name="Reason" ColumnName="Reason" />
-                <ScalarProperty Name="ID_AppointmentStatus" ColumnName="ID_AppointmentStatus" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1701,6 +1687,19 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище VeterinaryСlinicModel.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище VeterinaryСlinicModel.sp_upgraddiagrams" />
+          <EntitySetMapping Name="Appointment">
+            <EntityTypeMapping TypeName="VeterinaryСlinicModel.Appointment">
+              <MappingFragment StoreEntitySet="Appointment">
+                <ScalarProperty Name="ID_AppointmentStatus" ColumnName="ID_AppointmentStatus" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="ID_Service" ColumnName="ID_Service" />
+                <ScalarProperty Name="ID_Pet" ColumnName="ID_Pet" />
+                <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+                <ScalarProperty Name="DateAppointment" ColumnName="DateAppointment" />
+                <ScalarProperty Name="ID_Appointment" ColumnName="ID_Appointment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

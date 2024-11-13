@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VeterinaryClinic.Windowws.RegistrarW"
         mc:Ignorable="d"
-        Title="Все записи" Height="450" Width="800"
+        Title="Все записи" Height="450" Width="1000"
         FontFamily="Comic Sans MS" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid>
 
         <ListView x:Name="AppoLV"  FontSize="15"
                   VerticalAlignment="Center" HorizontalAlignment="Center"
-                  Width="750" Height="380"
+                  Width="950" Height="380"
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden" d:ItemsSource="{Binding appointments}">
             <ListView.View>
                 <GridView>
@@ -28,7 +28,7 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header ="Услуга" Width="100">
+                        <GridViewColumn Header ="Услуга" Width="250">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel>
@@ -46,11 +46,11 @@
 
                                     <StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock FontSize="10" Text="{Binding Clients.FirstName}"/>
+                                            <TextBlock FontSize="10" Text="{Binding Clients.FirstName_Client}"/>
                                             <TextBlock Text=" "/>
-                                            <TextBlock FontSize="10" Text="{Binding Clients.LastName}" />
+                                            <TextBlock FontSize="10" Text="{Binding Clients.LastName_Client}" />
                                             <TextBlock Text=" "/>
-                                            <TextBlock FontSize="10" Text="{Binding Clients.Patronymic}"/>
+                                            <TextBlock FontSize="10" Text="{Binding Clients.Patronymic_Client}"/>
                                             <TextBlock Text=" "/>
                                         </StackPanel>
                                     </StackPanel>
@@ -58,16 +58,11 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header ="Данные о питомце" Width="300">
+                        <GridViewColumn Header ="Причина обращения" Width="340">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
 
                                     <StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock FontSize="10" Text="{Binding PetType.Name_PetType}"/>
-                                            <TextBlock FontSize="10" Text="; Причина обращения:"/>
-                                            <TextBlock Text=" "/>
-                                        </StackPanel>
 
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock FontSize="10" TextWrapping="Wrap" Text="{Binding Reason}"/>

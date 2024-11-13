@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VeterinaryClinic.Windowws.RegistrarW"
         mc:Ignorable="d"
-        Title="Добавление нового клиента" Height="450" Width="400" FontFamily="Comic Sans MS" ResizeMode="NoResize">
+        Title="Добавление нового клиента" Height="500" Width="400" FontFamily="Comic Sans MS" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

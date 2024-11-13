@@ -18,8 +18,8 @@ namespace VeterinaryClinic.DB
         public Clients()
         {
             this.Agreement = new HashSet<Agreement>();
-            this.Appointment = new HashSet<Appointment>();
             this.Pets = new HashSet<Pets>();
+            this.Appointment = new HashSet<Appointment>();
         }
     
         public int ID_Client { get; set; }
@@ -35,10 +35,10 @@ namespace VeterinaryClinic.DB
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Agreement> Agreement { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Appointment> Appointment { get; set; }
         public virtual Gender Gender { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pets> Pets { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Appointment> Appointment { get; set; }
     }
 }

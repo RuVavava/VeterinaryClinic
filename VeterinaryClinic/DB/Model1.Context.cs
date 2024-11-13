@@ -28,7 +28,6 @@ namespace VeterinaryClinic.DB
         }
     
         public virtual DbSet<Agreement> Agreement { get; set; }
-        public virtual DbSet<Appointment> Appointment { get; set; }
         public virtual DbSet<AppointmentStatus> AppointmentStatus { get; set; }
         public virtual DbSet<Clients> Clients { get; set; }
         public virtual DbSet<ConsentToPerformService> ConsentToPerformService { get; set; }
@@ -48,6 +47,7 @@ namespace VeterinaryClinic.DB
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Warehouse> Warehouse { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Appointment> Appointment { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

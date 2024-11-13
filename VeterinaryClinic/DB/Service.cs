@@ -17,9 +17,9 @@ namespace VeterinaryClinic.DB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Service()
         {
-            this.Appointment = new HashSet<Appointment>();
             this.FinancialTransactions = new HashSet<FinancialTransactions>();
             this.LaboratoryTests = new HashSet<LaboratoryTests>();
+            this.Appointment = new HashSet<Appointment>();
         }
     
         public int ID_Service { get; set; }
@@ -28,11 +28,11 @@ namespace VeterinaryClinic.DB
         public int Cost { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Appointment> Appointment { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FinancialTransactions> FinancialTransactions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LaboratoryTests> LaboratoryTests { get; set; }
         public virtual ServiceType ServiceType { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Appointment> Appointment { get; set; }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VeterinaryClinic.Windowws.RegistrarW"
         mc:Ignorable="d"
-        Title="Добавление нового животного" Height="450" Width="400" FontFamily="Comic Sans MS" ResizeMode="NoResize">
+        Title="Добавление нового животного" Height="500" Width="400" FontFamily="Comic Sans MS" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -36,7 +36,7 @@
 
         <TextBlock Text="Вид животного:" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Width="300" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 00"/>
         <ComboBox x:Name="TypePetCB" ItemsSource="{Binding petsType}"
-                     Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="21"  Width="150" Height="25" Margin="10, 0, 0, 0">
+                     Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15"  Width="150" Height="25" Margin="10, 0, 0, 0">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -49,9 +49,9 @@
         <ComboBox x:Name="GenderCB"
                   Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"
                   Margin="0, 0, 0, 0"
-               FontSize="21"  Width="150" Height="25">
-            <TextBlock FontSize="20">Мужской</TextBlock>
-            <TextBlock FontSize="20">Женский</TextBlock>
+               FontSize="15"  Width="150" Height="25">
+            <TextBlock FontSize="15">Мужской</TextBlock>
+            <TextBlock FontSize="15">Женский</TextBlock>
         </ComboBox>
 
 
@@ -89,7 +89,7 @@
             </TextBox.Template>
         </TextBox>
 
-        <TextBlock Text="Вес (г):" Grid.Row="5" Grid.Column="1" Width="150" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 30 0 0"/>
+        <TextBlock Text="Вес (кг):" Grid.Row="5" Grid.Column="1" Width="150" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 30 0 0"/>
         <TextBox x:Name="WeightTB" Grid.Row="5" Grid.Column="1" Width="100" Height="25" HorizontalAlignment="Center" Margin="60 25 0 0" >
             <TextBox.Template>
                 <ControlTemplate>
@@ -108,9 +108,9 @@
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding FirstName}"/>
-                        <TextBlock Text="{Binding LastName}"/>
-                        <TextBlock Text="{Binding Patronymic}"/>
+                        <TextBlock Text="{Binding FirstName_Client}"/>
+                        <TextBlock Text="{Binding LastName_Client}"/>
+                        <TextBlock Text="{Binding Patronymic_Client}"/>
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>

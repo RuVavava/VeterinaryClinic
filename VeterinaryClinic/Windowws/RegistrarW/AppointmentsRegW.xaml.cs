@@ -23,6 +23,7 @@ namespace VeterinaryClinic.Windowws.RegistrarW
         public static List<Appointment> appointments { get; set; }
         public static List<Clients> clients { get; set; }
         public static List<Pets> pets { get; set; }
+        public static List<PetType> petTypes { get; set; }
         public static List<Service> services { get; set; }
         public AppointmentsRegW()
         {
@@ -30,6 +31,7 @@ namespace VeterinaryClinic.Windowws.RegistrarW
             clients = new List<Clients>(DBConnection.veterinary.Clients.ToList());
             pets = new List<Pets>(DBConnection.veterinary.Pets.ToList());
             services = new List<Service>(DBConnection.veterinary.Service.ToList());
+            petTypes = new List<PetType>(DBConnection.veterinary.PetType.ToList());
 
             appointments = new List<Appointment>(DBConnection.veterinary.Appointment.ToList());
 

@@ -29,7 +29,12 @@ namespace VeterinaryClinic.Windowws.RegistrarW
         {
             InitializeComponent();
             petsType = new List<PetType>(DB.DBConnection.veterinary.PetType.ToList());
-            clients = new List<Clients>(DBConnection.veterinary.Clients.ToList());
+            clients = new List<Clients>(DB.DBConnection.veterinary.Clients.ToList());
+
+            TypePetCB.ItemsSource = petsType;
+            ClientsCB.ItemsSource = clients;
+
+            this.DataContext = this;
         }
 
         private void NumericOnly(System.Object sender, System.Windows.Input.TextCompositionEventArgs e)
@@ -73,9 +78,13 @@ namespace VeterinaryClinic.Windowws.RegistrarW
                     MessageBox.Show(error.ToString());
                 }
 
+                var a = TypePetCB.SelectedItem as PetType;
 
-                var result = MessageBox.Show($"Проверьте верность введенных данных:\nКличка животного: {NamePetTB.Text}, \nВид животного: {TypePetCB.Text} {GenderCB.Text}, " +
-                    $"\nПорода и окрас:, {BreedTB.Text}, {ColorTB.Text} , \nКлиент: {ClientsCB.Text}", "",
+                var b = ClientsCB.SelectedItem as Clients;
+
+
+                var result = MessageBox.Show($"Проверьте верность введенных данных:\nКличка животного: {NamePetTB.Text}, \nВид животного: {a.Name_PetType} {GenderCB.Text}, " +
+                    $"\nПорода и окрас:, {BreedTB.Text}, {ColorTB.Text} , \nКлиент: {b.LastName_Client} {b.FirstName_Client} {b.Patronymic_Client}", "",
                     MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
 
                 if (result == MessageBoxResult.Yes)
@@ -83,10 +92,8 @@ namespace VeterinaryClinic.Windowws.RegistrarW
 
                     pet.Name_Pet = NamePetTB.Text.Trim();
 
-                    var a = TypePetCB.SelectedItem as PetType;
                     pet.ID_PetType = a.ID_PetType;
 
-                    var b = ClientsCB.SelectedItem as Clients;
                     pet.ID_Client = b.ID_Client;
 
                     pet.Breed = BreedTB.Text.Trim();
@@ -99,6 +106,8 @@ namespace VeterinaryClinic.Windowws.RegistrarW
 
                     pet.Color = ColorTB.Text.Trim();
                     pet.Weight = Convert.ToInt32(WeightTB.Text.Trim());
+
+
 
                     DBConnection.veterinary.Pets.Add(pet);
                     DBConnection.veterinary.SaveChanges();

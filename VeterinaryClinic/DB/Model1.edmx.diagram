@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="73034c231bcf4563870b636cf81fd832" Name="Diagram1">
         <EntityTypeShape EntityType="VeterinaryСlinicModel.Agreement" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="VeterinaryСlinicModel.Appointment" Width="1.5" PointX="8.25" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VeterinaryСlinicModel.AppointmentStatus" Width="1.5" PointX="6" PointY="23.5" IsExpanded="true" />
         <EntityTypeShape EntityType="VeterinaryСlinicModel.Clients" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="VeterinaryСlinicModel.ConsentToPerformService" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
@@ -30,10 +29,6 @@
         <AssociationConnector Association="VeterinaryСlinicModel.FK_Agreement_ConsentToPerformService" ManuallyRouted="false" />
         <AssociationConnector Association="VeterinaryСlinicModel.FK_Agreement_Employees" ManuallyRouted="false" />
         <AssociationConnector Association="VeterinaryСlinicModel.FK_Agreement_Pets" ManuallyRouted="false" />
-        <AssociationConnector Association="VeterinaryСlinicModel.FK_Appointment_AppointmentStatus" ManuallyRouted="false" />
-        <AssociationConnector Association="VeterinaryСlinicModel.FK_Appointment_Clients" ManuallyRouted="false" />
-        <AssociationConnector Association="VeterinaryСlinicModel.FK_Appointment_Pets" ManuallyRouted="false" />
-        <AssociationConnector Association="VeterinaryСlinicModel.FK_Appointment_Service" ManuallyRouted="false" />
         <AssociationConnector Association="VeterinaryСlinicModel.FK_Clients_Gender" ManuallyRouted="false" />
         <AssociationConnector Association="VeterinaryСlinicModel.FK_Pets_Clients" ManuallyRouted="false" />
         <AssociationConnector Association="VeterinaryСlinicModel.FK_Employees_Gender" ManuallyRouted="false" />
@@ -51,6 +46,11 @@
         <AssociationConnector Association="VeterinaryСlinicModel.FK_Warehouse_Product" ManuallyRouted="false" />
         <AssociationConnector Association="VeterinaryСlinicModel.FK_Service_ServiceType" ManuallyRouted="false" />
         <AssociationConnector Association="VeterinaryСlinicModel.FK_Warehouse_Supplier" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.Appointment" Width="1.5" PointX="8.25" PointY="12.125" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Appointment_AppointmentStatus" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Appointment_Clients" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Appointment_Pets" />
+        <AssociationConnector Association="VeterinaryСlinicModel.FK_Appointment_Service" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -62,7 +62,7 @@ namespace VeterinaryClinic.Pages
 
                     NavigationService.Navigate(new Pages.Veterinarian.MainPageVet());
                 }
-                else if (curret_user != null && curret_user.POST == 1) //Лаборант
+                else if (curret_user != null && curret_user.POST == 1) //Администратор
                 {
                     MessageBox.Show($"Добро пожаловать, {curret_user.FirstName} {curret_user.LastName} {curret_user.Patronymic}!", "", MessageBoxButton.OK, MessageBoxImage.Information);
 
