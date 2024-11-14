@@ -23,6 +23,7 @@ namespace VeterinaryClinic.Pages
     public partial class AuthPage : Page
     {
         public static List<Users> Users { get; set; }
+        bool curret_user_post = false;
         public AuthPage()
         {
             InitializeComponent();
@@ -46,6 +47,13 @@ namespace VeterinaryClinic.Pages
 
                 var users = DBConnection.veterinary.Users.ToList();
                 var curret_user = users.FirstOrDefault(i => i.Phone == phone && i.Password == password);
+                
+                if (curret_user.POST == 2 || curret_user.POST == 3 || curret_user.POST == 4 || curret_user.POST == 5 || curret_user.POST == 6 ||
+                    curret_user.POST == 7 || curret_user.POST == 8 || curret_user.POST == 9)
+                {
+                    curret_user_post = true;
+                }
+
 
                 DBConnection.curret_user = curret_user;
 
@@ -56,7 +64,7 @@ namespace VeterinaryClinic.Pages
                     NavigationService.Navigate(new Pages.Registrar.MainPageRegistr());
 
                 }
-                else if (curret_user != null && curret_user.POST == 2) //Ветврач
+                else if (curret_user != null && curret_user_post == true) //Ветврач
                 {
                     MessageBox.Show($"Добро пожаловать, {curret_user.FirstName} {curret_user.LastName} {curret_user.Patronymic}!", "", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -66,7 +74,7 @@ namespace VeterinaryClinic.Pages
                 {
                     MessageBox.Show($"Добро пожаловать, {curret_user.FirstName} {curret_user.LastName} {curret_user.Patronymic}!", "", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                    //NavigationService.Navigate(new Pages.StudentsPages.OglavleniePage());
+                    NavigationService.Navigate(new Pages.AdminMainPage());
                 }
                 else if (phone == "" || password == "")
                     MessageBox.Show("Введите незаполненные поля", "ПРЕДУПРЕЖДЕНИЕ", MessageBoxButton.OK, MessageBoxImage.Warning);

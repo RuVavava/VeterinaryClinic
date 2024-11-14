@@ -51,6 +51,7 @@
         <AssociationConnector Association="VeterinaryСlinicModel.FK_Appointment_Clients" />
         <AssociationConnector Association="VeterinaryСlinicModel.FK_Appointment_Pets" />
         <AssociationConnector Association="VeterinaryСlinicModel.FK_Appointment_Service" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.KolvoApp" Width="1.5" PointX="7.375" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

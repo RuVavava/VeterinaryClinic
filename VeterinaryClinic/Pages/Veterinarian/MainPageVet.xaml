@@ -18,64 +18,92 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
+        <Button x:Name="BackBTN" Content="⬅"
+                FontSize="30" FontWeight="Light"
+                Grid.Column="0" Grid.Row="0"
+                Width="100" Height="50" Margin="20, 30, 0, 0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                BorderBrush="Black" BorderThickness="2" Background="#CC05A0FF" Click="BackBTN_Click" 
+                >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
-        <ListView x:Name="ClientsLV" VerticalAlignment="Center"
-                  Grid.Column="1" Grid.ColumnSpan="2" 
-                  Grid.Row="0" Grid.RowSpan="2"
-                  BorderBrush="Black" BorderThickness="2"
-                  Width="1200" Height="600" d:ItemsSource="{Binding clients}" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+        <ListView x:Name="AppointmensLV"  FontSize="25"
+                  VerticalAlignment="Center" HorizontalAlignment="Center"
+                  Width="1300" Height="500"
+                  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2"
+                  ScrollViewer.HorizontalScrollBarVisibility="Hidden" d:ItemsSource="{Binding appointments}" SelectionChanged="AppointmensLV_SelectionChanged" >
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
+                        <GridViewColumn Header ="Услуга" Width="400">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
 
-                        <GridViewColumn Header ="Клиент" Width="400">
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal" Height="90">
+                                            <TextBlock TextWrapping="Wrap" Width="325"  Margin="10, 0" VerticalAlignment="Top"  FontSize="20"  Text="{Binding Service.Name_Service}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header ="Клиент" Width="350">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
 
                                     <StackPanel>
                                         <StackPanel Orientation="Horizontal" Height="30">
-                                            <TextBlock FontSize="20" Text="{Binding Client.FirstName}"/>
+                                            <TextBlock FontSize="20" Text="{Binding Clients.FirstName_Client}"/>
                                             <TextBlock Text=" "/>
-                                            <TextBlock FontSize="20" Text="{Binding Client.LastName}" />
+                                            <TextBlock FontSize="20" Text="{Binding Clients.LastName_Client}" />
                                             <TextBlock Text=" "/>
-                                            <TextBlock FontSize="20" Text="{Binding Client.Patronymic}"/>
+                                            <TextBlock FontSize="20" Text="{Binding Clients.Patronymic_Client}"/>
                                             <TextBlock Text=" "/>
                                         </StackPanel>
 
                                         <StackPanel Orientation="Horizontal" Height="30">
-                                            <TextBlock FontSize="20"  Text="{Binding Client.Email}"/>
+                                            <TextBlock FontSize="20"  Text="{Binding Clients.Email_Client}"/>
                                         </StackPanel>
 
                                         <StackPanel Orientation="Horizontal" Height="30">
-                                            <TextBlock FontSize="20"  Text="{Binding Client.Phone}"/>
+                                            <TextBlock FontSize="20"  Text="{Binding Clients.Phone_Client}"/>
                                         </StackPanel>
                                     </StackPanel>
 
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        
-                        
                         <GridViewColumn Header ="Время записи" Width="270">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
 
                                     <StackPanel Height="90">
-                                        <TextBlock FontSize="20" Height="70" Text="{Binding StartTime, StringFormat = dd.MM.yyyy HH:mm}"/>
+                                        <StackPanel Height="30">
+                                            <TextBlock FontSize="20" Height="70" Text="{Binding DateAppointment, StringFormat = dd.MM.yyyy HH:mm}"/>
+                                        </StackPanel>
+                                        <StackPanel Height="45">
+                                            <TextBlock FontSize="20" Text="{Binding OstatokHours}" Foreground="{Binding LeftOurs}"/>
+                                        </StackPanel>
                                     </StackPanel>
 
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header ="Осталось до записи" Width="270">
+                        <GridViewColumn Header ="Животное" Width="270">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
 
                                     <StackPanel Height="90">
-                                        <TextBlock FontSize="20" Text="{Binding OstatokHours}" Foreground="{Binding LeftOurs}"/>
+                                        <TextBlock FontSize="20" Text="{Binding Pets.Name_Pet}"/>
                                     </StackPanel>
 
                                 </DataTemplate>
@@ -85,7 +113,82 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        
-        
+
+        <ListView x:Name="Clients_PetsLV"  FontSize="25"
+                  VerticalAlignment="Center" HorizontalAlignment="Center"
+                  Width="1300" Height="500"
+                  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2"
+                  ScrollViewer.HorizontalScrollBarVisibility="Hidden" d:ItemsSource="{Binding pets}">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header =" " Width="350">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+
+                                    <StackPanel>
+                                        <Button x:Name="MedicalRBTN" Grid.Row="3" Content="Добавить запись"
+                                                    HorizontalAlignment="Left"
+                                                    Width="300" Height="45" Margin="20 0 0 0" FontSize="20"                
+                                                    BorderBrush="Black" BorderThickness="3" Background="#CC05A0FF" 
+                                                    Click="MedicalRBTN_Click">
+                                            <Button.Resources>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="CornerRadius" Value="20"/>
+                                                </Style>
+                                            </Button.Resources>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                      
+
+                        <GridViewColumn Header ="Животное" Width="270">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+
+                                    <StackPanel>
+                                        <TextBlock FontSize="20" Text="{Binding Name_Pet}"/>
+                                    </StackPanel>
+
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header ="Данные о питомце" Width="550">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock FontSize="20" Text="{Binding PetType.Name_PetType}"/>
+                                            <TextBlock FontSize="20" Text="; Порода: "/>
+                                            <TextBlock FontSize="20" Text="{Binding Breed}" />
+                                            <TextBlock FontSize="20" Text="; Окрас: "/>
+                                            <TextBlock FontSize="20" Text="{Binding Color}"/>
+                                            <TextBlock Text=" "/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock FontSize="20" Text="Возраст: "/>
+                                            <TextBlock FontSize="20" Text="{Binding Age}"/>
+                                            <TextBlock FontSize="20" Text="; Вес (кг): "/>
+                                            <TextBlock FontSize="20" Text="{Binding Weight}" />
+                                            <TextBlock FontSize="20" Text="; Пол: "/>
+                                            <TextBlock FontSize="20" Text="{Binding Gender.Name_Gender}"/>
+
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </Page>

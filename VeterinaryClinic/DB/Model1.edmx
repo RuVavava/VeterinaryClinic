@@ -210,6 +210,15 @@
           <Property Name="ID_Supplier" Type="int" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "VeterinaryСlinic.dbo.KolvoApp" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="KolvoApp">
+          <Key>
+            <PropertyRef Name="DateAppointment" />
+          </Key>
+          <Property Name="DateAppointment" Type="datetime" Nullable="false" />
+          <Property Name="CountApp" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "VeterinaryСlinic.dbo.Users" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="Users">
           <Key>
@@ -580,6 +589,12 @@
           <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Warehouse" EntityType="Self.Warehouse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KolvoApp" EntityType="Self.KolvoApp" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [KolvoApp].[DateAppointment] AS [DateAppointment], 
+    [KolvoApp].[CountApp] AS [CountApp]
+    FROM [dbo].[KolvoApp] AS [KolvoApp]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Users" EntityType="Self.Users" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Users].[ID] AS [ID], 
@@ -1356,6 +1371,7 @@
             <End Role="Service" EntitySet="Service" />
             <End Role="Appointment" EntitySet="Appointment" />
           </AssociationSet>
+          <EntitySet Name="KolvoApp" EntityType="VeterinaryСlinicModel.KolvoApp" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1432,6 +1448,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="KolvoApp">
+          <Key>
+            <PropertyRef Name="DateAppointment" />
+          </Key>
+          <Property Name="DateAppointment" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CountApp" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1697,6 +1720,14 @@
                 <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
                 <ScalarProperty Name="DateAppointment" ColumnName="DateAppointment" />
                 <ScalarProperty Name="ID_Appointment" ColumnName="ID_Appointment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KolvoApp">
+            <EntityTypeMapping TypeName="VeterinaryСlinicModel.KolvoApp">
+              <MappingFragment StoreEntitySet="KolvoApp">
+                <ScalarProperty Name="CountApp" ColumnName="CountApp" />
+                <ScalarProperty Name="DateAppointment" ColumnName="DateAppointment" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -48,6 +48,7 @@ namespace VeterinaryClinic.DB
         public virtual DbSet<Warehouse> Warehouse { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Appointment> Appointment { get; set; }
+        public virtual DbSet<KolvoApp> KolvoApp { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
